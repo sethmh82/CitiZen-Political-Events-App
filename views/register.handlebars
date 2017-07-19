@@ -1,0 +1,32 @@
+<!-- START HTML -->
+<main class="container">
+
+<!-- HEADER -->
+
+
+{{> events/event-header}}
+
+<!-- ALL EVENTS -->
+
+
+    <div class="row" id="eventDiv">
+        <div class="col-lg-4" id="eventList">
+         
+         <form class="form-horizontal" action="signup/usercreate" method="POST">
+	 <fieldset>
+		<div class="form-group">
+			<label>Username</label>
+			<input name="reg_user" type="text" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input name="reg_pass" type="password" class="form-control">
+		</div>
+
+		<button type="submit" class="btn btn-warning btn-lg">Signup</button>
+		 </fieldset>
+	</form>
+
+</div>
+    </div>
+</main>
