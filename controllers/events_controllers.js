@@ -18,7 +18,7 @@ router.get("/signup", function(req, res) {
     res.render("register"); });
 
 // NO
-router.get("/addevent", function(req, res) {  
+router.get("./events/create", function(req, res) {  
     res.redirect("/addevent"); });
 
     /// NO
@@ -59,16 +59,33 @@ router.get("/myfeed", function(req, res) {
     });
 });
 
-
-router.get("/events/:id", function(req, res) {
-    db.Events.findOne({
-        
-        where: { id: req.params.id }
-
+// LOADS ALL EVENTS
+router.get("/create", function(req, res) {
+    db.Events.findAll({
+        order: [ ["event_name", "ASC"] ]
     }).then(function(allEvents) {
          console.log(allEvents);
          var events = {"Events" : allEvents}
-        res.render("index", events);
+        res.render("addevent", events);
+       
+    });
+});
+
+
+
+
+
+
+/////////////////
+router.get("/events/:id", function(req, res) {
+    db.Events.findAll({
+        
+        where: { id: req.params.id }
+
+    }).then(function(oneEvent) {
+       //  console.log(allEvents);
+         var singleEvent = {"Events" : oneEvent}
+        res.render("index", singleEvent);
        
     });
 });
@@ -84,7 +101,7 @@ router.post("/new", function(req, res) {
         event_location: req.body.in_location,
         event_date: req.body.in_date
     }).then(function() {
-        res.redirect("/");
+        res.redirect("/events");
     });
 });
 
