@@ -1,13 +1,5 @@
 
 
-
-
-
-
-
-
- <!-- ALL EVENTS -->
-
     {{#each this.Events}}
                     {{#if this.removed}}
     <div class="row" id="eventDiv">
@@ -29,7 +21,7 @@
                            
                            
  <form action="events/delete/{{this.id}}?_method=DELETE" method="POST">
-                                <button type="submit" class="btn btn-info btn-xs2" id="removedBtn">REMOVE EVENT</button>
+                                <button type="submit" class="btn btn-info btn-xs2" id="removedBtn">ATTEND EVENT</button>
                             </form>
                   </div>      
              </div>

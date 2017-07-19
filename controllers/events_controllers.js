@@ -2,30 +2,21 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
-// WORKING PATHS
-
-//    / = signup
-//    /events = events
-
-//Redirect from / to signup page
 router.get("/", function(req, res) { 
     res.redirect("/signup"); });
 
-// THE NEXT DOES THE SAME THING
-
-// Renders from signup to register
 router.get("/signup", function(req, res) {  
     res.render("register"); });
 
-// NO
+
 router.get("./events/create", function(req, res) {  
     res.redirect("/addevent"); });
 
-    /// NO
+
 router.get("/login", function(req, res) {  
     res.render("/events"); });
 
-    // NO
+
 router.post("/signup/usercreate", function(req, res) {
     return db.Users.create({
         username: req.body.reg_user,
